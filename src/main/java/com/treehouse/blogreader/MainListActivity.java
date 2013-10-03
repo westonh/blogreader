@@ -33,6 +33,8 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.crittercism.app.Crittercism;
+
 public class MainListActivity extends ListActivity {
 	
 	protected JSONObject mBlogData;
@@ -47,6 +49,7 @@ public class MainListActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+        Crittercism.initialize(getApplicationContext(), "524cbece97c8f22371000002");
 		setContentView(R.layout.activity_main_list);
 		mProgressBar = (ProgressBar) findViewById(R.id.progressBar1);
 		
