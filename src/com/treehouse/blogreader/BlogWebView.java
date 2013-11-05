@@ -13,7 +13,7 @@ import android.webkit.WebView;
 public class BlogWebView extends Activity {
 
 	protected String mUrl;
-//Test comment
+//Test comment2
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
