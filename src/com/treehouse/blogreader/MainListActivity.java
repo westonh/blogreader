@@ -34,6 +34,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crittercism.app.Crittercism;
+import com.newrelic.agent.android.NewRelic;
+import com.treehouse.blogreader.R;
 
 public class MainListActivity extends ListActivity {
 	
@@ -49,7 +51,10 @@ public class MainListActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-        Crittercism.initialize(getApplicationContext(), "524cbece97c8f22371000002");
+        NewRelic.withApplicationToken(
+                "AA48dab173aafe21f74d48c34cc5e4357e8553ee0b"
+        ).start(this.getApplication());
+        //Crittercism.initialize(getApplicationContext(), "524cbece97c8f22371000002");
 		setContentView(R.layout.activity_main_list);
 		mProgressBar = (ProgressBar) findViewById(R.id.progressBar1);
 		

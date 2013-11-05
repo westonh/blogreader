@@ -1,5 +1,7 @@
 package com.treehouse.blogreader;
 
+import com.treehouse.blogreader.R;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -9,18 +11,18 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 
 public class BlogWebView extends Activity {
-	
-	protected String mUrl;
 
+	protected String mUrl;
+//Test comment
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_blog_web_view);
-		
+
 		Intent intent = getIntent();
 		Uri blogUri = intent.getData();
 		mUrl = blogUri.toString();
-		
+
 		WebView webView = (WebView) findViewById(R.id.webView1);
 		webView.loadUrl(mUrl);
 	}
@@ -31,15 +33,15 @@ public class BlogWebView extends Activity {
 		getMenuInflater().inflate(R.menu.blog_web_view, menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int itemId = item.getItemId();
-		
+
 		if(itemId == R.id.action_share) {
 			sharePost();
 		}
-			
+
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -48,7 +50,7 @@ public class BlogWebView extends Activity {
 		shareIntent.setType("text/plain");
 		shareIntent.putExtra(Intent.EXTRA_TEXT, mUrl);
 		startActivity(Intent.createChooser(shareIntent, getString(R.string.share_chooser_title)));
-		
+
 	}
 
 }
